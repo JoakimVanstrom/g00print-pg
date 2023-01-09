@@ -12,7 +12,7 @@ import { Sequelize } from 'sequelize';
 
 export const connect = new Sequelize({
     dialect: 'sqlite',
-    storage: './db.sqlite',
+    storage: './libs/g00print-lib/src/lib/database/db.sqlite',
     logging: false
 
 })
