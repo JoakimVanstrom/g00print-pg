@@ -7,6 +7,7 @@
     "build": "nx build",
     "test": "nx test",
     "start:api": "nx serve print-api",
+    "start:app": "nx serve g00print",
     "test:api": "nx run print-api:test",
     "setup": "node ./apps/print-api/src/app/database/setup.ts"
   },
@@ -32,6 +33,7 @@
     "@types/pg": "^8.6.6",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "@types/react-redux": "^7.1.25",
     "@types/react-router-dom": "5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
@@ -64,17 +66,26 @@
     "vitest": "^0.25.1"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.7",
+    "@reduxjs/toolkit": "1.9.0",
+    "@types/styled-components": "^5.1.26",
+    "axios": "^1.2.4",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.18.1",
-    "express-validator": "^6.14.2",
+    "express-validator": "^6.14.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.8.0",
     "pg": "^8.8.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "8.0.5",
     "react-router-dom": "6.4.3",
     "sequelize": "^6.28.0",
     "sqlite3": "^5.1.4",
+    "styled-components": "^5.3.6",
     "tslib": "^2.3.0"
   }
 }

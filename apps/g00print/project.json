@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "g00print",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/frontend/src",
+  "sourceRoot": "apps/g00print/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,7 +9,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/frontend"
+        "outputPath": "dist/apps/g00print"
       },
       "configurations": {
         "development": {},
@@ -20,15 +20,15 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "frontend:build"
+        "buildTarget": "g00print:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "frontend:build:development",
+          "buildTarget": "g00print:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "frontend:build:production",
+          "buildTarget": "g00print:build:production",
           "hmr": false
         }
       }
@@ -44,7 +44,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/frontend/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/g00print/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

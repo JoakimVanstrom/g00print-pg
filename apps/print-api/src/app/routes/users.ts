@@ -14,10 +14,11 @@ router.post('/api/auth', async (req, res, next) => {
     }
 });
 
+
 router.get('/api/users', async (req, res, next) => {
-   try {
-    const users = await getUsers();
-    res.send(users);
+    try {
+        const users = await getUsers();
+        res.send(users);
     } catch (err) {
         next(err);
     }

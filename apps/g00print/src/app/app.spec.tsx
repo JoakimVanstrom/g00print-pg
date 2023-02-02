@@ -22,6 +22,6 @@ describe('App', () => {
       </BrowserRouter>
     );
 
-    expect(getByText(/Welcome frontend/gi)).toBeTruthy();
+    expect(getByText(/Welcome g00print/gi)).toBeTruthy();
   });
 });

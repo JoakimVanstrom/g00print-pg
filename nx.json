@@ -36,7 +36,7 @@
     ],
     "sharedGlobals": []
   },
-  "defaultProject": "print-api",
+  "defaultProject": "g00print",
   "generators": {
     "@nrwl/react": {
       "application": {
