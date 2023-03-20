@@ -8,28 +8,28 @@ const LoginView = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
-  const [token, setToken] = useState('');
     const navigate = useNavigate();
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    axios
-      .post('http://localhost:3333/api/auth', {
+    await axios
+      .post('http://localhost:3333/api/login', {
         email: user,
         password: pwd,
       })
       .then((res) => {
-        setToken(res.data);
         dispatch(authActions.setToken(res.data));
-        navigate('/');
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
       });
+   
   };
 
   return (
     <section>
-      {token}
-
-      <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit}>
         <h1>Sign In</h1>
         <label htmlFor="email">email: </label>
         <input

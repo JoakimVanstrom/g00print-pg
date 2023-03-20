@@ -25,7 +25,11 @@ User.init({
     role: {
         type: DataTypes.ENUM('admin', 'user'),
         allowNull: false,
-        defaultValue: 'user'
+        defaultValue: false
+    },
+    refreshToken: {
+        type: DataTypes.STRING,
+        allowNull: true
     }
 }, {
     timestamps: false,
@@ -37,6 +41,7 @@ User.init({
 User.authenticate = async (email: string, password: string) => {
     const getToken = "secretNinja"
     const user = await User.findOne({ where: { email } });
+
     if (!user) {
         throw new Error('User not found');
     }
@@ -44,10 +49,9 @@ User.authenticate = async (email: string, password: string) => {
     if (!isPasswordMatch) {
         throw new Error('Password is incorrect');
     }
-    const token = jwt.sign({ id: user.id }, getToken, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id, role: user.role }, getToken, { expiresIn: '1h' });
     return token;
 }
-
 
 
 User.beforeCreate(async (user) => {

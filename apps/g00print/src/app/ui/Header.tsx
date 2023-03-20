@@ -1,9 +1,10 @@
 // import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 // import getUsers from "../api/getUsers";
 // import { UserInterface } from "@g00-print/g00print-lib";
 import logo from "../../assets/logo.jpg";
-import styled from "styled-components";
+import "./header.scss";
 
 // const [users, setUsers] = useState<UserInterface[]>([]);
 
@@ -18,45 +19,19 @@ import styled from "styled-components";
 
 
 const Header = () => {
+    const navigate = useNavigate();
 
-const HeaderContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    img {
 
-    }
-    nav {
-        ul {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            li {
-                margin-left: 1rem;
-                a {
-                    text-decoration: none;
-                    color: #000;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    &:hover {
-                        color: #007bff;
-                    }
-                }
-            }
-        }
-    }
-`;
 
+const logoHandler = () => {
+    navigate("/");
+};
 
 
 
     return (
-        <HeaderContainer>
-            <img src={logo} alt="logo" />
+        <div className="headerWrapper">
+            <img src={logo} alt="logo" onClick={logoHandler} />
             <nav>
                 <ul>
                     <li>
@@ -69,11 +44,12 @@ const HeaderContainer = styled.div`
                         <Link to="/users">Users</Link>
                     </li>
                     <li>
-                        <Link to="/auth">Login</Link>
+                        <Link to="/login">Login</Link>
                     </li>
+                    <li></li>
                 </ul>
             </nav>
-         </HeaderContainer>
+         </div>
     );
 
     };

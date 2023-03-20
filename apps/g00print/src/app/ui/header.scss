@@ -1,0 +1,32 @@
+.headerWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    img {
+
+    }
+    nav {
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                margin-left: 1rem;
+                a {
+                    text-decoration: none;
+                    color: #000;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    &:hover {
+                        color: #007bff;
+                    }
+                }
+            }
+        }
+    }
+
+}
