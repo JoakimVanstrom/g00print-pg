@@ -20,11 +20,16 @@ import "./header.scss";
 
 const Header = () => {
     const navigate = useNavigate();
+    const isLoggedIn = window.localStorage.getItem("isLoggedIn");
 
 
 
 const logoHandler = () => {
     navigate("/");
+};
+
+const handleLogout = () => {
+    window.localStorage.clear();
 };
 
 
@@ -44,7 +49,11 @@ const logoHandler = () => {
                         <Link to="/users">Users</Link>
                     </li>
                     <li>
-                        <Link to="/login">Login</Link>
+                        {isLoggedIn === "true" ? (
+                            <Link to="/" onClick={handleLogout}> Logout </Link>
+                        ) : (
+                            <Link to="/login">Login</Link>
+                        )}
                     </li>
                     <li></li>
                 </ul>

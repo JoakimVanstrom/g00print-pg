@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialAuthState = {
     token: null,
-    userId: null,
+    isLoggedIn: false
 };
 
 const authSlice = createSlice({
@@ -13,6 +13,10 @@ const authSlice = createSlice({
         setToken(state, action) {
             state.token = action.payload;
         },
+        setIsLoggedIn(state, action) {
+            state.isLoggedIn = action.payload;
+        }
+
     }
 });
 

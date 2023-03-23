@@ -49,7 +49,7 @@ User.authenticate = async (email: string, password: string) => {
     if (!isPasswordMatch) {
         throw new Error('Password is incorrect');
     }
-    const token = jwt.sign({ id: user.id, role: user.role }, getToken, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id }, getToken, { expiresIn: '1h' });
     return token;
 }
 

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { authActions } from '../store/slicers/auth';
-import { useDispatch } from 'react-redux';
+// import { authActions } from '../store/slicers/auth';
+// import { useDispatch } from 'react-redux';
 
 const LoginView = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
     const navigate = useNavigate();
@@ -18,12 +18,21 @@ const LoginView = () => {
         password: pwd,
       })
       .then((res) => {
-        dispatch(authActions.setToken(res.data));
+        // dispatch(authActions.setToken(res.data));
+        // dispatch(authActions.setIsLoggedIn(true));
+        window.localStorage.setItem('token', res.data);
+        window.localStorage.setItem('isLoggedIn', 'true');
+
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
       });
+
+      setTimeout(() => {
+       window.localStorage.clear();
+       window.location.reload();
+      }, 60 * 60 * 1000);
    
   };
 
