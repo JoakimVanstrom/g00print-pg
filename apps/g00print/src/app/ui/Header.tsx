@@ -1,28 +1,24 @@
-// import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-// import getUsers from "../api/getUsers";
-// import { UserInterface } from "@g00-print/g00print-lib";
+import { useState } from "react";
 import logo from "../../assets/logo.jpg";
 import "./header.scss";
+import { useSelector } from "react-redux";
+import LoginModal from "../modal/LoginModal";
 
-// const [users, setUsers] = useState<UserInterface[]>([]);
 
-// console.log(users);
-
-// useEffect(() => {
-
-//     getUsers().then(users => {
-//         setUsers(users)
-//     })
-// },[]) ;
 
 
 const Header = () => {
     const navigate = useNavigate();
     const isLoggedIn = window.localStorage.getItem("isLoggedIn");
+    const user = useSelector((state: any) => state.user.user);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
 
+  const openModal = () => {
+    setIsModalOpen(true);
+    };
 
 const logoHandler = () => {
     navigate("/");
@@ -30,7 +26,9 @@ const logoHandler = () => {
 
 const handleLogout = () => {
     window.localStorage.clear();
+    window.location.reload();
 };
+
 
 
 
@@ -46,16 +44,18 @@ const handleLogout = () => {
                         <Link to="/about">About</Link>
                     </li>
                     <li>
-                        <Link to="/users">Users</Link>
-                    </li>
-                    <li>
                         {isLoggedIn === "true" ? (
-                            <Link to="/" onClick={handleLogout}> Logout </Link>
-                        ) : (
-                            <Link to="/login">Login</Link>
+                            <Link to="/" onClick={handleLogout}> {user?.name} </Link>
+                        ) : (<div onClick={openModal}>
+                            <div className="loginBtn">
+                            login
+                            </div>
+                            {isModalOpen &&
+                            <LoginModal />
+                            }
+                        </div>
                         )}
                     </li>
-                    <li></li>
                 </ul>
             </nav>
          </div>

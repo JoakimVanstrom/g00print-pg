@@ -3,8 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 // import { authActions } from '../store/slicers/auth';
 // import { useDispatch } from 'react-redux';
+import '../styles/loginModal.scss'
 
-const LoginView = () => {
+const LoginModal = () => {
   // const dispatch = useDispatch();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
@@ -37,7 +38,7 @@ const LoginView = () => {
   };
 
   return (
-    <section>
+    <section className='login-wrapper'>
        <form onSubmit={handleSubmit}>
         <h1>Sign In</h1>
         <label htmlFor="email">email: </label>
@@ -64,4 +65,4 @@ const LoginView = () => {
   );
 };
 
-export default LoginView;
+export default LoginModal;
