@@ -11,10 +11,13 @@ const LoginModal = () => {
   const [pwd, setPwd] = useState('');
     const navigate = useNavigate();
 
+   const PRODUCTION_IP = "68.183.32.241"
+   const DEVELOPMENT_IP = "localhost"
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await axios
-      .post(`http://${process.env.PRODUCTION_IP}:${process.env.APIPORT}/api/login`, {
+      .post(`http://${PRODUCTION_IP}:3333/api/login`, {
         email: user,
         password: pwd,
       })
