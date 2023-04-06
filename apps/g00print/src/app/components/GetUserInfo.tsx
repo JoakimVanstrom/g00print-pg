@@ -14,7 +14,7 @@ const GetUserInfo = () => {
   
     useEffect(() => {
         try{
-            axios.get('http://68.183.32.241:3333/api/user', {
+            axios.get(`http://${process.env.PRODUCTION_IP}:${process.env.APIPORT}/api/user`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

@@ -5,7 +5,7 @@ import axios from "axios";
 
 const getUser = async (id: string, token: string) => {
     try {
-      const response = await axios.get(`http://68.183.32.241:3333/api/user/${id}`, {
+      const response = await axios.get(`http://${process.env.PRODUCTION_IP}:${process.env.APIPORT}/api/user/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

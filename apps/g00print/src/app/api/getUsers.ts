@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 const getUsers = async (): Promise<UserInterface[]> => {
-    const response = await axios.get('http://68.183.32.241:3333/api/users')
+    const response = await axios.get(`http://${process.env.PRODUCTION_IP}:${process.env.APIPORT}/api/users`)
         .then((res) => {
             return res.data;
         })
