@@ -20,7 +20,8 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "g00print:build"
+        "buildTarget": "g00print:build",
+        "host": "68.183.32.241"
       },
       "configurations": {
         "development": {
