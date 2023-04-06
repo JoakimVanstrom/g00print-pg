@@ -1,62 +1,40 @@
-// import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-// import getUsers from "../api/getUsers";
-// import { UserInterface } from "@g00-print/g00print-lib";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import logo from "../../assets/logo.jpg";
-import styled from "styled-components";
+import "./header.scss";
+import { useSelector } from "react-redux";
+import LoginModal from "../modal/LoginModal";
 
-// const [users, setUsers] = useState<UserInterface[]>([]);
 
-// console.log(users);
-
-// useEffect(() => {
-
-//     getUsers().then(users => {
-//         setUsers(users)
-//     })
-// },[]) ;
 
 
 const Header = () => {
+    const navigate = useNavigate();
+    const isLoggedIn = window.localStorage.getItem("isLoggedIn");
+    const user = useSelector((state: any) => state.user.user);
 
-const HeaderContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    img {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    }
-    nav {
-        ul {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            li {
-                margin-left: 1rem;
-                a {
-                    text-decoration: none;
-                    color: #000;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    &:hover {
-                        color: #007bff;
-                    }
-                }
-            }
-        }
-    }
-`;
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    };
+
+const logoHandler = () => {
+    navigate("/");
+};
+
+const handleLogout = () => {
+    window.localStorage.clear();
+    window.location.reload();
+};
 
 
 
 
     return (
-        <HeaderContainer>
-            <img src={logo} alt="logo" />
+        <div className="headerWrapper">
+            <img src={logo} alt="logo" onClick={logoHandler} />
             <nav>
                 <ul>
                     <li>
@@ -66,14 +44,21 @@ const HeaderContainer = styled.div`
                         <Link to="/about">About</Link>
                     </li>
                     <li>
-                        <Link to="/users">Users</Link>
-                    </li>
-                    <li>
-                        <Link to="/auth">Login</Link>
+                        {isLoggedIn === "true" ? (
+                            <Link to="/" onClick={handleLogout}> {user?.name} </Link>
+                        ) : (<div onClick={openModal}>
+                            <div className="loginBtn">
+                            login
+                            </div>
+                            {isModalOpen &&
+                            <LoginModal />
+                            }
+                        </div>
+                        )}
                     </li>
                 </ul>
             </nav>
-         </HeaderContainer>
+         </div>
     );
 
     };

@@ -5,6 +5,6 @@ export class User extends Model {
     public name!: string;
     public email!: string;
     public password!: string;
-    public role!: Role;
+    public role!: Role | string;
     public static authenticate: (name: string, password: string) => Promise<string>;
 }
