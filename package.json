@@ -8,6 +8,8 @@
     "test": "nx test",
     "start:api": "nx serve print-api",
     "start:app": "nx serve g00print",
+    "build:api": "nx build print-api",
+    "build:app": "nx build g00print",
     "test:api": "nx run print-api:test",
     "setup": "node ./apps/print-api/src/app/database/setup.ts"
   },
