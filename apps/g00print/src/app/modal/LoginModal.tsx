@@ -14,7 +14,7 @@ const LoginModal = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await axios
-      .post('http://localhost:3333/api/login', {
+      .post('http://68.183.32.241:3333/api/login', {
         email: user,
         password: pwd,
       })
