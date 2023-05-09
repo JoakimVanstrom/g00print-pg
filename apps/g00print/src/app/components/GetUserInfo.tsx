@@ -11,13 +11,13 @@ const GetUserInfo = () => {
     const token = window.localStorage.getItem('token')
     const dispatch = useDispatch();
 
-    const PRODUCTION_IP = "68.183.32.241"
-    const DEVELOPMENT_IP = "localhost"
-
+    // const prod = process.env.PRODUCTION_IP;
+    const dev = 'localhost';
+    
   
     useEffect(() => {
         try{
-            axios.get(`http://${PRODUCTION_IP}:3333/api/user`, {
+            axios.get(`http://${dev}:3333/api/user`, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }

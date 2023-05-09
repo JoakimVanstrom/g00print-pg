@@ -20,8 +20,7 @@
       "executor": "@nrwl/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "g00print:build",
-        "host": "68.183.32.241"
+        "buildTarget": "g00print:build"
       },
       "configurations": {
         "development": {
@@ -49,6 +48,5 @@
       }
     }
   },
-  "tags": [],
-  "proxy": "http://68.183.32.241:4200"
+  "tags": []
 }

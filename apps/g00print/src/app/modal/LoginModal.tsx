@@ -5,19 +5,21 @@ import { useNavigate } from 'react-router-dom';
 // import { useDispatch } from 'react-redux';
 import '../styles/loginModal.scss'
 
+
 const LoginModal = () => {
   // const dispatch = useDispatch();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
     const navigate = useNavigate();
 
-   const PRODUCTION_IP = "68.183.32.241"
-   const DEVELOPMENT_IP = "localhost"
+    // const prod = process.env.PRODUCTION_IP;
+    const dev = 'localhost';
+    
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await axios
-      .post(`http://${PRODUCTION_IP}:3333/api/login`, {
+      .post(`http://${dev}:3333/api/login`, {
         email: user,
         password: pwd,
       })

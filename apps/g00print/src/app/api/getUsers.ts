@@ -3,12 +3,15 @@ import axios from "axios";
 
 
 
+
+
+
 const getUsers = async (): Promise<UserInterface[]> => {
 
-    const PRODUCTION_IP = "68.183.32.241"
-    const DEVELOPMENT_IP = "localhost"
+    // const prod = process.env.PRODUCTION_IP;
+    const dev = 'localhost';
 
-    const response = await axios.get(`http://${PRODUCTION_IP}:3333/api/users`)
+    const response = await axios.get(`http://${dev}:3333/api/users`)
         .then((res) => {
             return res.data;
         })

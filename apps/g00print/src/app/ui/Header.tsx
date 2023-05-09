@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import logo from "../../assets/logo.jpg";
+import transparentLogo from "../../assets/transparent-logo.png";
 import "./header.scss";
 import { useSelector } from "react-redux";
 import LoginModal from "../modal/LoginModal";
@@ -16,8 +16,8 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
-  const openModal = () => {
-    setIsModalOpen(true);
+  const openModal = () => {   
+    setIsModalOpen(!isModalOpen); 
     };
 
 const logoHandler = () => {
@@ -34,14 +34,17 @@ const handleLogout = () => {
 
     return (
         <div className="headerWrapper">
-            <img src={logo} alt="logo" onClick={logoHandler} />
+            <img src={transparentLogo} alt="logo" onClick={logoHandler} />
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="#aboutUs">Om oss</Link>
                     </li>
                     <li>
-                        <Link to="/about">About</Link>
+                        <Link to="#service">Tjänster</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Kontakt</Link>
                     </li>
                     <li>
                         {isLoggedIn === "true" ? (

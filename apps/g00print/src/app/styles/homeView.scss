@@ -1,0 +1,87 @@
+
+.homeImage {
+    height: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-color: rgba(60,60,60,1);
+    h1 {
+       
+        position: relative;
+        padding: 0;
+        margin: 0;
+        color: rgba(212,144,30,1);
+    }
+    h3 {
+   
+        position: relative;
+        padding: 0;
+        margin: 0;
+        color: rgba(255,255,255,1);
+    
+    }
+}
+.homeImage::before {
+    content: "";
+    background-image: url("../../assets/handshake.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 200px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+.aboutUs {
+    h1{
+        text-align: center;
+    }
+    img{
+        width: 100%;
+    }
+    p{
+        padding: 0 0.5rem;
+    }
+}
+
+.tjanster {
+    height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-color: rgba(60,60,60,1);
+    color: rgba(255,255,255,1);
+    h2{
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    p {
+        padding: 0 2rem;
+    }
+}
+
+.tjanster::before {
+    content: "";
+    background-image: url("../../assets/konsultImg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 400px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+.tjanstWrapper {
+    display: flex;
+    flex-direction: row;
+}
