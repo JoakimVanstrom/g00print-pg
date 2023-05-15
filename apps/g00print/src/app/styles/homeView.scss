@@ -40,58 +40,5 @@
 
 }
 
-.aboutUs {
-    h1{
-        text-align: center;
-    }
-    img{
-        width: 100%;
-    }
-    p{
-        padding: 0 0.5rem;
-    }
-}
-@media screen and (min-width: 1920px) {
-    .aboutUs {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 1rem;
-        img{
-            width: 30%;
-        }
-        p{
-            padding: 0 2rem;
-        }
-    }
-}
+
     
-
-
-.workers {
-    h1  {
-        text-align: center;
-    }
-}
-.workersWrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-@media screen and (min-width: 700px) {
-    .workersHover {
-        display: none;
-      }
-      .workersCard:hover .owner {
-        display: none;
-      }
-      
-      .workersCard:hover .workersHover {
-        display: block;
-      }
-}
-
