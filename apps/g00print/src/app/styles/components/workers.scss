@@ -1,34 +1,63 @@
-
-
 .workers {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 2rem 0;
     h1  {
+        grid-column: 1/13;
+        grid-row: 1;
         text-align: center;
+        padding-bottom: 1rem;
     }
+    h4 {
+        text-align: left;
+        padding: 0.5rem 0 0 0;
+    }
+    .owner {
+        padding-bottom: 0.5rem;
+    }
+    p {
+        text-align: left;
+        font-size: 0.8rem;
+    }
+    img {
+        border-radius: 16px;
+    }
+
 }
 .workersWrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    grid-row: 2;
+    grid-column: 3/11;
 }
 
+.workersCard {
+    padding-left: 0.5rem;
+}
+
+
+
+
 @media screen and (min-width: 700px) {
-    .workersHover {
-        display: none;
-      }
-      .workersCard:hover .owner {
-        display: none;
-      }
-      
-      .workersCard:hover .workersHover {
-        display: block;
-      }
+    .workers {
+        padding: 5rem 0;
+    }
+    .workersWrapper {
+      grid-column: 2 / 13;
+      place-self: center;
+        img {
+            width: 300px;
+        
+        }
+        h4 {
+            font-size: 1.5rem;
+        }
+        p{
+            font-size: 1.2rem;
+            width: 50%;
+        }
+    }
 }
 
 @media screen and (max-width: 700px) {
-    .owner {
-    display: none;
-    }
+
 }  
 

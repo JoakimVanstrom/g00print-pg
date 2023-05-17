@@ -6,21 +6,23 @@
     position: relative;
     background-color: rgba(60,60,60,1);
     color: rgba(255,255,255,1);
+    padding: 1rem 0;
     h2{
         margin-bottom: 0;
         padding-bottom: 0;
     }
     p {
         padding: 0 2rem;
+        font-size: 1rem;
     }
 }
 
 .tjanster::before {
     content: "";
-    background-image: url("../../assets/konsultImg.jpg");
+    background-image: url("../../../assets/konsultImg.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto 400px;
+    background-size: cover;
     position: absolute;
     top: 0px;
     right: 0px;
@@ -32,4 +34,42 @@
 .tjanstWrapper {
     display: flex;
     flex-direction: column;
+    padding-top: 1rem;
+}
+
+.konsult {
+    padding-top: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+
+    .tjanster {
+        height: 650px;
+        h1{
+            font-size: 4rem;
+        }
+    }
+    .serviceCard {
+        width: 400px;
+    }
+  
+        .tjanstWrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding-top: 1rem;
+            img {
+                width: 150px;
+            }
+            h2 {
+                font-size: 2rem;
+                padding: 0 2rem;
+            }
+            p{
+               text-align: center;
+                font-size: 1.4rem;
+            }
+        }
+
 }

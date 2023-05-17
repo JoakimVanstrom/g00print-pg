@@ -1,6 +1,7 @@
 import { useState, FormEvent } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../styles/loginView.scss'
 // import { authActions } from '../store/slicers/auth';
 // import { useDispatch } from 'react-redux';
 
@@ -10,10 +11,12 @@ const LoginView = () => {
   const [pwd, setPwd] = useState('');
     const navigate = useNavigate();
 
+    const dev = 'localhost';
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await axios
-      .post('http://localhost:3333/api/login', {
+      .post(`http://${dev}:3333/api/login`, {
         email: user,
         password: pwd,
       })
@@ -36,15 +39,21 @@ const LoginView = () => {
    
   };
 
+  const handleNotAdmin = () => {
+    navigate('/')
+  }
+
   return (
     <section>
-       <form onSubmit={handleSubmit}>
+    <article className="login-wrapper">
         <h1>Sign In</h1>
-        <label htmlFor="email">email: </label>
+       <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email: </label>
         <input
           type="text"
           id="email"
           autoComplete="off"
+          placeholder="Enter your Email"
           onChange={(e) => setUser(e.target.value)}
           value={user}
           required
@@ -54,12 +63,19 @@ const LoginView = () => {
         <input
           type="password"
           id="password"
+          placeholder='Enter your Password'
           onChange={(e) => setPwd(e.target.value)}
           value={pwd}
           required
         />
-        <button>Sign In</button>
+        <button className="login-btn">Sign In</button>
       </form>
+    </article>
+    <article className="notAdmin">
+      <p>Are you not an admin?</p>
+      <p onClick={handleNotAdmin}>Press <u>here</u> to go back</p>
+    </article>
+
     </section>
   );
 };

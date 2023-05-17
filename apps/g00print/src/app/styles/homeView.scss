@@ -42,3 +42,51 @@
 
 
     
+.backtoTop {
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    a{
+        color: black;
+    }
+
+    .arrow {
+        border: 1px solid black;
+        font-size: 1rem;
+        padding: 0.5rem; 
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        z-index: 100;
+        background-color: white;
+        border-radius: 100%;
+        
+    }
+}
+
+@media screen and (min-width: 700px) {
+  .homeImage {
+    height: 600px;
+    h1 {
+        font-size: 4rem;
+    }
+    h3 {
+        font-size: 2rem;
+    }    
+  }
+  .homeImage::before {
+    content: "";
+    background-image: url("../../assets/handshake.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+}

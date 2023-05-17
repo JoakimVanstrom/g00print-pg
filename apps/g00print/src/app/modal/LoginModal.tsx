@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 // import { authActions } from '../store/slicers/auth';
 // import { useDispatch } from 'react-redux';
-import '../styles/loginModal.scss'
+
 
 
 const LoginModal = () => {

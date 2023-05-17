@@ -12,11 +12,12 @@ const Footer = () => {
   const instagram = findIconDefinition({ prefix: 'fab', iconName: 'instagram' })
 
 
+
   return (
-    <div>
+    <div className="footerWrapper" id="Contact">
       <div className="footerWrapper">
-      <div className="footerInfo">
-        <div>
+      <a href='https://www.google.com/maps/search/%22G00print+AB,+M%C3%B6rbyv%C3%A4gen+26,+18632+Vallentuna+Socken,+Sweden%22/@59.5355518,18.0788376,18.75z' className="footerInfo">
+        <div className="footerIcon">
         <FontAwesomeIcon icon={location} />
         </div>
         <div>
@@ -26,9 +27,9 @@ const Footer = () => {
           <p>18632 Vallentuna Socken</p>
           <p>Sverige</p>
         </div>
-      </div>
+      </a>
       <div className="footerInfo">
-        <div>
+        <div className="footerIcon">
         <FontAwesomeIcon icon={email} />
         </div>
         <div>
@@ -37,7 +38,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footerInfo">
-        <div>
+        <div className="footerIcon">
         <FontAwesomeIcon icon={phone} />
         </div>
         <div>
@@ -45,14 +46,16 @@ const Footer = () => {
         </div>
       </div>
       </div>
-      <div className="footerSocial">
-      <div>
-       <FontAwesomeIcon icon={facebook} />
-       <FontAwesomeIcon icon={instagram} />
+      <div className="footerSocialWrapper">  
+      <a href="https://www.facebook.com/profile.php?id=100087966620794">
+       <FontAwesomeIcon icon={facebook} className="footerSocial"/>
+      </a>
+      <a href="https://www.instagram.com/g00print/">
+       <FontAwesomeIcon icon={instagram} className="footerSocial" />
+      </a>
       </div>
-      <div>
+      <div className="footerCopyright">
         <p>Copyright © Alla rättigheter förbehållna</p>
-      </div>
       </div>
     </div>
   );

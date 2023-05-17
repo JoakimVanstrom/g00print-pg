@@ -1,26 +1,46 @@
 .aboutUs {
+    padding: 1rem 0;
     h1{
         text-align: center;
     }
+    
+}
+
+.aboutUsCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
     img{
         width: 100%;
+        border-radius: 16px;
     }
     p{
-        padding: 0 0.5rem;
+        padding: 0.5rem 0;
+        font-size: 1rem;
     }
 }
-@media screen and (min-width: 1920px) {
+
+@media screen and (min-width: 700px) {
     .aboutUs {
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        padding: 1rem;
+        padding: 5rem 1rem;
         img{
             width: 30%;
         }
         p{
             padding: 0 2rem;
+        }
+        .aboutUsCard {
+            display: flex;
+            flex-direction: row;
+            p {
+                width: 30%;
+            }
         }
     }
 }

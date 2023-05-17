@@ -1,20 +1,40 @@
 .footerWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    padding: 1rem 0;
+    p  {
+        font-size: 1rem;
+    }
+    a {
+        color: black;
+        text-decoration: none;
+    }
 }
 
-.footerSocial {
+.footerSocialWrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
     padding: 1rem;
+    font-size: 2rem;
+    .footerSocial {
+        padding: 0 1rem;
+    }
+   
 }
 
 .footerInfo {
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 1rem 1rem 1rem 3.5rem;
+}
+
+.footerIcon {
+    padding-right: 1rem;
+    font-size: 2rem;
+}
+
+.footerCopyright {
+    text-align: center;
+    padding-bottom: 1rem;
 }
