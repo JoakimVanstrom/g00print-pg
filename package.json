@@ -11,6 +11,7 @@
     "build:api": "nx build print-api",
     "build:app": "nx build g00print",
     "test:api": "nx run print-api:test",
+    "test:app": "nx run g00print:test",
     "setup": "node ./apps/print-api/src/app/database/setup.ts"
   },
   "private": true,
