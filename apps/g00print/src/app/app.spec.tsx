@@ -18,7 +18,7 @@ describe('App', () => {
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
+  it('should have a title', () => {
     const { getByText } = render(
       <Provider store={store}>
       <BrowserRouter>
@@ -27,6 +27,6 @@ describe('App', () => {
       </Provider>
     );
 
-    expect(getByText(/Welcome g00print/gi)).toBeTruthy();
+    expect(getByText(/G00print/gi)).toBeTruthy();
   });
 });
