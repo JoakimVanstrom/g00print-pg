@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-free/css/all.min.css';
+// import '@fortawesome/fontawesome-free/css/all.min.css';
 import "./footer.scss"
 
 const Footer = () => {
@@ -15,7 +15,7 @@ const Footer = () => {
 
   return (
     <div className="footerWrapper" id="Contact">
-      <div className="footerWrapper">
+      <div className="footerCard">
       <a href='https://www.google.com/maps/search/%22G00print+AB,+M%C3%B6rbyv%C3%A4gen+26,+18632+Vallentuna+Socken,+Sweden%22/@59.5355518,18.0788376,18.75z' className="footerInfo">
         <div className="footerIcon">
         <FontAwesomeIcon icon={location} />
@@ -42,6 +42,7 @@ const Footer = () => {
         <FontAwesomeIcon icon={phone} />
         </div>
         <div>
+          <h4>Telefon</h4>
           <p>+46730766140</p>
         </div>
       </div>

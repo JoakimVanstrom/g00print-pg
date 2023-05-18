@@ -3,6 +3,8 @@ import Header from './ui/Header';
 import HomeView from './view/HomeView';
 import LoginView from './view/LoginView';
 import GetUserInfo from './components/GetUserInfo';
+import UploadView from './view/UploadView';
+import GalleryView from './view/GalleryView';
 
 
 
@@ -16,6 +18,8 @@ function App() {
         <Route path="/" element={  <HomeView />} />
         <Route path="/login" element={<LoginView />} />
         <Route path="getUser" element={<GetUserInfo />} />
+        <Route path="/upload" element={<UploadView />} />
+        <Route path="/gallery" element={<GalleryView />} />
       </Routes>
     </div>
   );
