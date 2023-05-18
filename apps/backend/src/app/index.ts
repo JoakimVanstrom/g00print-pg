@@ -1,14 +1,18 @@
 import express from 'express';
 // import Validations from '@g00-print/g00print-lib';
 import userRouter from './routes/users';
+import fileRouter from './routes/files';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import expressFileUpload from 'express-fileupload';
+
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(expressFileUpload());
 
 app.use(cors());
 
@@ -32,7 +36,9 @@ app.get('/delete-cookie', (req, res) => {
 });
 
 
+
 app.use(userRouter)
+app.use(fileRouter)
 
 
 export default app;
