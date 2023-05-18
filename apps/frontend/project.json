@@ -89,5 +89,8 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "moduleNameMapper": {
+    "^@fortawesome/fontawesome-free(.*)$": "<rootDir>/mocks/font-awesome.mock.ts"
+  }
 }

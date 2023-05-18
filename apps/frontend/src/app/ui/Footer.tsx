@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core'
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import "./footer.scss"
 
 const Footer = () => {

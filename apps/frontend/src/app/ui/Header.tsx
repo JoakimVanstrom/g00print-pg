@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 // import LoginModal from '../modal/LoginModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { findIconDefinition } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Header = () => {
   const navigate = useNavigate();
