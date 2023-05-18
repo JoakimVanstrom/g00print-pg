@@ -3,33 +3,38 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/g00print-lib/src",
   "projectType": "library",
-  "tags": [],
   "targets": {
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
       "options": {
-        "lintFilePatterns": ["libs/g00print-lib/**/*.{ts,tsx,js,jsx}"]
+        "outputPath": "dist/libs/g00print-lib",
+        "main": "libs/g00print-lib/src/index.ts",
+        "tsConfig": "libs/g00print-lib/tsconfig.lib.json",
+        "assets": ["libs/g00print-lib/*.md"]
       }
     },
-    "build": {
-      "executor": "@nrwl/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "outputPath": "dist/libs/g00print-lib"
-      },
-      "configurations": {
-        "development": {},
-        "production": {}
+        "lintFilePatterns": ["libs/g00print-lib/**/*.ts"]
       }
     },
     "test": {
-      "executor": "@nrwl/vite:test",
-      "outputs": ["{projectRoot}/coverage"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
+        "jestConfig": "libs/g00print-lib/jest.config.ts",
         "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
       }
     }
-  }
+  },
+  "tags": []
 }

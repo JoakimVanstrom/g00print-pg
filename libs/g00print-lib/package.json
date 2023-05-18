@@ -1,12 +1,5 @@
 {
-  "name": "@g00-print/g00print-lib",
+  "name": "@g00print-ab/g00print-lib",
   "version": "0.0.1",
-  "main": "./index.js",
-  "types": "./index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./index.mjs",
-      "require": "./index.js"
-    }
-  }
+  "type": "commonjs"
 }
