@@ -23,6 +23,8 @@ const GetUserInfo = () => {
                 }
             }).then(res => {
                 dispatch(userActions.setUser(res.data))
+                window.localStorage.setItem('username', res.data.name)
+                window.localStorage.setItem('role', res.data.role)
             }).then(() => {
                 navigate('/')
             })

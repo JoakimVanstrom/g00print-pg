@@ -1,0 +1,68 @@
+.galleryWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    text-align: center;
+    padding: 0 1rem 2rem 1rem;
+  }
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.galleryItem {
+    position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0 0.5rem 0;
+  margin-bottom: 1rem;
+  background-color: whitesmoke;
+  border-radius: 16px;
+ 
+  p {
+    align-self: start;
+    padding: 0.5rem 1rem;
+  }
+  img {
+    width: 250px;
+    height: 200px;
+    border-radius: 16px;
+   object-fit: fill;
+  }
+  button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid black;
+    border-radius: 16px;
+    background-color: rgb(4, 158, 50);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+}
+
+@media screen and (min-width: 700px) {
+    .galleryWrapper {
+        padding: 1rem 15rem;
+        
+    }
+
+  .cardWrapper {
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

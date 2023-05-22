@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { addFile, getFiles, deleteFile } from '@g00print-ab/g00print-lib';
 import expressFileUpload from 'express-fileupload';
-import { parse } from 'path';
+
 
 const router = Router();
 
@@ -11,8 +11,6 @@ router.get('/upload', (req, res) => {
 })
 
 router.post('/upload', (req, res) => {
-    console.log(req.files);
-    console.log(req.body);
     if (req.files) {
         const file = req.files.file as expressFileUpload.UploadedFile;
         const fileName = file.name;
@@ -22,7 +20,8 @@ router.post('/upload', (req, res) => {
                 res.send('error occured');
             } else {
                 addFile({ name: fileName, creator: req.body.creator, path: './apps/frontend/src/assets/uploads/' + fileName, renderPath: '../../assets/uploads/' + fileName, desc: req.body.desc });
-                res.send('done');
+                res.send('Success');
+            
             }
         });
     }
