@@ -2,9 +2,11 @@ import { useState, FormEvent } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/loginView.scss'
+import { useDispatch } from 'react-redux';
+import { authActions } from '../store/slicers/auth';
 
 const LoginView = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [user, setUser] = useState('');
   const [pwd, setPwd] = useState('');
     const navigate = useNavigate();
@@ -22,6 +24,7 @@ const LoginView = () => {
       .then((res) => {
         window.localStorage.setItem('token', res.data);
         window.localStorage.setItem('isLoggedIn', 'true');
+        dispatch(authActions.setToken(res.data));
 
         navigate("/getUser");
       })

@@ -1,12 +1,14 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import '../styles/uploadView.scss'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const UploadView: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [desc, setDesc] = useState('');
   const [creator, setCreator] = useState('');
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const token = window.localStorage.getItem('token')
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -26,7 +28,6 @@ const UploadView: React.FC = () => {
     event.preventDefault();
 
     if (!file) {
-      
       return alert('Please select a file');
     }
 
@@ -35,14 +36,17 @@ const UploadView: React.FC = () => {
     formData.append('desc', desc);
     formData.append('creator', creator);
 
-    fetch('http://localhost:3333/upload', {
-      method: 'POST',
-      body: formData,
-    })
+    axios
+      .post('http://localhost:3333/api/upload', formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       .then((response) => {
-        if (response.ok) {
-            navigate('/gallery')
-        } 
+        if (response.status === 200) {
+          navigate('/gallery');
+        }
       })
       .catch((error) => {
         console.error(error);
@@ -74,6 +78,10 @@ const UploadView: React.FC = () => {
       </form>
     </div>
   );
-};
+  };
+
+
+
+
 
 export default UploadView;

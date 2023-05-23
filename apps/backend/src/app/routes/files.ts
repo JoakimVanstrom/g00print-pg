@@ -1,16 +1,17 @@
 import { Router } from 'express';
 import { addFile, getFiles, deleteFile } from '@g00print-ab/g00print-lib';
 import expressFileUpload from 'express-fileupload';
+import { isAdmin } from '../middleware/AuthMiddleware';
 
 
 const router = Router();
 
 
-router.get('/upload', (req, res) => {
+router.get('/api/upload', (req, res) => {
     res.send('upload');
 })
 
-router.post('/upload', (req, res) => {
+router.post('/api/upload', isAdmin, async (req, res) => {
     if (req.files) {
         const file = req.files.file as expressFileUpload.UploadedFile;
         const fileName = file.name;

@@ -13,19 +13,12 @@ const Header = () => {
   const user = useSelector((state: any) => state.user.user);
   const burger = findIconDefinition({ prefix: 'fas', iconName: 'bars' });
   // const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
-  const [isAdmin, setIsAdmin] = useState("");
+  const isAdmin = window.localStorage.getItem('role');
 
   const isLoggedIn = window.localStorage.getItem('isLoggedIn');
   const username = window.localStorage.getItem('username');
 
- useEffect(() => {
-  const role = window.localStorage.getItem('role');
-  if(role === 'admin'){
-    setIsAdmin('admin');
-  }else
-  setIsAdmin('');
 
-  }, [])
 
 
 
