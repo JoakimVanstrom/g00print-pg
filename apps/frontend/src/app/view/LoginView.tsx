@@ -5,6 +5,8 @@ import '../styles/loginView.scss'
 import { useDispatch } from 'react-redux';
 import { authActions } from '../store/slicers/auth';
 
+
+
 const LoginView = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState('');
@@ -12,12 +14,15 @@ const LoginView = () => {
     const navigate = useNavigate();
 
 
-    const dev = 'localhost';
+
+
+  const dev = 'localhost';
+  const prod = '68.183.32.241'
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     await axios
-      .post(`http://${dev}:3333/api/login`, {
+      .post(`http://${prod}:3333/api/login`, {
         email: user,
         password: pwd,
       })

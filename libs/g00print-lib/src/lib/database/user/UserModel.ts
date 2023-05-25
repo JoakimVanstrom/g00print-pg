@@ -39,7 +39,7 @@ User.init({
 
 
 User.authenticate = async (email: string, password: string) => {
-    const getToken = "secretNinja"
+    const secret = "secretNinja"
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
@@ -49,7 +49,7 @@ User.authenticate = async (email: string, password: string) => {
     if (!isPasswordMatch) {
         throw new Error('Password is incorrect');
     }
-    const token = jwt.sign({ id: user.id, role: user.role }, getToken, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id, role: user.role }, secret, { expiresIn: '1h' });
     return token;
 }
 

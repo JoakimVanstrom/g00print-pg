@@ -8,10 +8,12 @@ import axios from "axios";
 
 const getUsers = async (): Promise<UserInterface[]> => {
 
-    // const prod = process.env.PRODUCTION_IP;
-    const dev = 'localhost';
+   
 
-    const response = await axios.get(`http://${dev}:3333/api/users`)
+    const dev = 'localhost'
+    const prod = '68.183.32.241'
+
+    const response = await axios.get(`http://${prod}:3333/api/users`)
         .then((res) => {
             return res.data;
         })
