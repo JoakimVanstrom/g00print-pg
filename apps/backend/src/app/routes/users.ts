@@ -33,7 +33,7 @@ router.get('/api/users', isAdmin, async (req, res, next) => {
 });
 
 
-router.get('/api/user/:id', getUser, async (req: CustomRequest, res, next) => {
+router.get('/api/user', getUser, async (req: CustomRequest, res, next) => {
     try {
         const user = await User.findOne({ where: { id: req.user.id }, attributes: { exclude: ['password'] } });
         console.log(user);
