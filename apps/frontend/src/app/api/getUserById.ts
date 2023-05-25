@@ -6,10 +6,10 @@ import axios from "axios";
 
 const getUser = async (id: string, token: string) => {
   // const prod = process.env.PRODUCTION_IP;
-const dev = 'localhost';
-
+  const dev = 'localhost'
+  const prod = '68.183.32.241'
     try {
-      const response = await axios.get(`http://${dev}:${process.env.APIPORT}/api/user/${id}`, {
+      const response = await axios.get(`http://${prod}:3333/api/user/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
