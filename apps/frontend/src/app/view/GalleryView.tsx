@@ -1,19 +1,21 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import '../styles/galleryView.scss';
-import { useSelector } from 'react-redux';
+
 
 const GalleryView = () => {
   const [gallery, setGallery] = useState([]);
-  const user = useSelector((state: any) => state.user.user);
 
-  const isAdmin = user?.role;
 
+  const isAdmin = window.localStorage.getItem('role');
+
+ 
   const dev = 'localhost';
+  const prod = '68.183.32.241';
 
   useEffect(() => {
     axios
-      .get(`http://${dev}:3333/api/gallery`)
+      .get(`http://${prod}:3333/api/gallery`)
       .then((res) => {
         setGallery(res.data);
       })
@@ -24,7 +26,7 @@ const GalleryView = () => {
 
   const handleDelete = (id: number) => {
     axios
-        .delete(`http://${dev}:3333/api/gallery/${id}`)
+        .delete(`http://${prod}:3333/api/gallery/${id}`)
         .then((res) => {
             console.log(res);
             window.location.reload();
