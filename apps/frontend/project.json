@@ -49,12 +49,12 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "frontend:build",
-        "hmr": true,
         "host": "68.183.32.241"
       },
       "configurations": {
         "development": {
-          "buildTarget": "frontend:build:development"
+          "buildTarget": "frontend:build:development",
+          "hmr": true
         },
         "production": {
           "buildTarget": "frontend:build:production",
@@ -93,5 +93,6 @@
   "tags": [],
   "moduleNameMapper": {
     "^@fortawesome/fontawesome-free(.*)$": "<rootDir>/mocks/font-awesome.mock.ts"
-  }
+  },
+  "proxy": "http://68.183.32.241:4200"
 }
