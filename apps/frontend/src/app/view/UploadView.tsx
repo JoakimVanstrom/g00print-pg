@@ -10,7 +10,10 @@ const UploadView: React.FC = () => {
   const navigate = useNavigate();
   const token = window.localStorage.getItem('token')
 
-  const host = '68.183.32.241' || 'localhost';
+
+
+  const prod = '68.183.32.241';
+  const dev = 'localhost';
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -39,7 +42,7 @@ const UploadView: React.FC = () => {
     formData.append('creator', creator);
 
     axios
-      .post(`http://${host}:3333/api/upload`, formData, {
+      .post(`http://${prod}:3333/api/upload`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',

@@ -8,6 +8,7 @@ const getUser = async (id: string, token: string) => {
   // const prod = process.env.PRODUCTION_IP;
   const dev = 'localhost'
   const prod = '68.183.32.241'
+
     try {
       const response = await axios.get(`http://${prod}:3333/api/user/${id}`, {
         headers: {
